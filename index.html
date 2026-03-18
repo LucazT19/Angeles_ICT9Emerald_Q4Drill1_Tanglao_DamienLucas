@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Consumption</title>
+
+    <style>
+        body {
+            background-image: url('ele.png'); 
+            background-size: cover;       
+            background-repeat: no-repeat; 
+            background-position: center; 
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;  
+            align-items: center;      
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h2 {
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Electricity Consumption Classifier</h2>
+
+    <input type="number" id="kwh" placeholder="Enter kWh">
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="output" style="color:red;"></p>
+</div>
+
+<script>
+function calculate() {
+    let kwh = document.getElementById("kwh").value;
+    let output = document.getElementById("output");
+
+    if (kwh === "" || kwh < 0) {
+        output.innerHTML = "Please input a non-negative number.";
+    } 
+    else if (kwh >= 0 && kwh <= 100) {
+        output.innerHTML = "Lifeline Consumer: Discounted electricity rates.";
+    } 
+    else if (kwh <= 200) {
+        output.innerHTML = "Low Consumption: Normal residential rate.";
+    } 
+    else if (kwh <= 300) {
+        output.innerHTML = "Average Consumption: Typical electricity usage.";
+    } 
+    else if (kwh <= 500) {
+        output.innerHTML = "High Consumption: Higher electricity usage.";
+    } 
+    else {
+        output.innerHTML = "Very High Consumption: Heavy electricity users.";
+    }
+}
+</script>
+
+</body>
+</html>
